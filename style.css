@@ -1,0 +1,52 @@
+body{
+    background-image: url('background3.jpg');
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+}
+div.container{
+    margin: 0 auto;
+    margin-top: 300px;
+    width: 400px;
+    height: 200px;
+    border-radius: 10px 10px 10px 10px;
+
+    
+}
+#formulario{
+    color: rgb(197, 197, 196);
+    font-size: 21px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#formulario label{
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #1B1B1E;
+    
+}
+#formulario input {
+    width: 250px;
+    height: 20px;
+    background: rgb(205, 209, 196,0.5);
+    border-radius: 5px 5px 5px 5px;
+    border: 1px solid white;
+    border-color: none;
+    padding: 5px;
+    margin-bottom: 10px;
+    
+}
+#formulario button{
+    color: white;
+    margin-top: 10px;
+    width: 200px;
+    background-color:#53A548;
+    border-radius: 5px 5px 5px 5px; 
+    padding: 10px;
+    border: none;
+    text-transform: uppercase;
+
+}
+.teste{
+}
