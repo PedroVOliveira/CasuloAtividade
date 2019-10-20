@@ -1,52 +1,144 @@
+body,form,p,label,h1,h2,h4,button{
+    margin: 0px;
+    padding: 0px;   
+}
 body{
-    background-image: url('background3.jpg');
-    background-repeat: no-repeat;
-    margin: 0;
-    padding: 0;
+    background: #000;
 }
-div.container{
-    margin: 0 auto;
-    margin-top: 300px;
-    width: 400px;
-    height: 200px;
-    border-radius: 10px 10px 10px 10px;
-
-    
-}
-#formulario{
-    color: rgb(197, 197, 196);
-    font-size: 21px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-#formulario label{
+h1,label,p{
+    font-style: italic;
     font-weight: bold;
-    margin-bottom: 15px;
-    color: #1B1B1E;
+    font-size: 25px;
+    margin: 5px;
     
 }
-#formulario input {
+input{
     width: 250px;
     height: 20px;
-    background: rgb(205, 209, 196,0.5);
+    background: rgba(129, 131, 124, 0.384);
     border-radius: 5px 5px 5px 5px;
-    border: 1px solid white;
+    border: 0.5px solid rgb(12, 12, 12);
     border-color: none;
     padding: 5px;
     margin-bottom: 10px;
+}
+img{
+    width: 350px;
+    height: 350px;
+}
+li{
+    list-style: none;
+}
+.img-left{
+    float: left;
+}
+
+.container{
+    width: 100%;
+    height: 97vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    width: 320px;
     
 }
-#formulario button{
+
+#formulario{
+    width: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #006989;
+    background-color: white;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.btn{
     color: white;
-    margin-top: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
     width: 200px;
     background-color:#53A548;
     border-radius: 5px 5px 5px 5px; 
     padding: 10px;
     border: none;
     text-transform: uppercase;
-
 }
-.teste{
+
+.card-image{
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    border-radius: 50%;
+    display: none;
+    /*background: url("https://placehold.it/500") no-repeat center center / cover;*/
+    animation: images 1s;
+}
+
+.ativo{
+    display: block;
+}
+
+.animate{
+    animation: images 3s;
+}
+
+@keyframes images{
+    from{
+        opacity: 0;
+        transform: scale3d(0,0,0);
+    } to{
+        opacity: 1;
+        transform: scale3d(0,50px,0);
+    }
+}
+.stars li {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: rgba(255, 242, 66, 0.829);
+    display: block;
+    position: absolute;
+    bottom: -20px;
+    animation: constelar 0.5s infinite alternate;
+    animation-delay: 4s;
+    z-index:-1;
+}
+/*Efeito criado por Daniel Akito */
+/* Efeito "Estrelado" */
+@keyframes constelar { 
+    /* 'from' é o inicio da animação */
+    from {
+        opacity: 0;
+        transform: translateY(0);
+    }
+    /* Há a possibilidade de definir valores entre o 'from' e o 'to' */
+    25% {
+        filter: brightness(100%);
+    }
+    50% {
+        opacity: 1;
+        filter: brightness(200%);
+    }
+    /* 'to' é o fim da animação */
+    to {
+        opacity: 0;
+        transform: translateY(-800px) rotate(960deg);
+    }
+}
+@media (min-width:740px) and (max-width:1024px){
+    img{
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media (max-width:739px){
+    .animate{
+        display: none;
+    }
 }

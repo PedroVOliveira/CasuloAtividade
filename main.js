@@ -1,78 +1,55 @@
-const inputElement = document.querySelector('#formulario input');
-const buttonElement = document.querySelector('#formulario button');
-buttonElement.addEventListener('click', valor =>{
-    valor = inputElement.value;
+const buttonElement = document.querySelector('.btn');
+const imgs = document.querySelectorAll('.card-image');
+const inputElement = document.querySelector('input');
 
-    switch (valor) {
-        case '1':
-            alert('casa de aries');
-            break;
-        case '2': 
-            alert('casa de touro');
-            break;
-        case '3':
-            alert('casa de geminni');
-        case '4':
-            alert('casa de cancer');
-        case '5':
-            alert('casa de leão');
-        case '6':
-            alert('casa de virgem');
-        case '7':
-            alert('casa de libra');   
-        case '8':
-            alert('casa de escorpião');               
-        case '9':
-            alert('casa de sargitário');
-        case '10':
-            alert('casa de capricornio'); 
-        case '11':
-            alert('casa de aquário'); 
-        case '12':
-            alert('casa de peixes');   
-        default:
-            alert('Digite um número de 1 e 12');    
-    } 
 
-    /*if(valor == 1){
-        alert('casa de aries');
+function showImgs(index){
+    //valor recebido do input
+    index = inputElement.value;
+    console.log(index);
+    if(index>=1 && index<=12){
+    imgs.forEach((element)=>{
+        // remove a classe ativo dos itens
+        element.classList.remove('ativo');
+    });
+    //Adiciona a classe ativo no item desejado//
+    imgs[index - 1 ].classList.add('ativo');
+    } else{
+        alert('digite um número de 1 a 12');
     }
-    if(valor == 2){
-        alert('casa de touro');
-    }
-    if(valor == 3){
-        alert('casa de geminni');
-    }
-    if(valor == 4){
-        alert('casa de cancer');
-    }
-    if(valor == 5){
-        alert('casa de leão');
-    }
-    if(valor == 6){
-        alert('casa de virgem');
-    }
-    if(valor == 7){
-        alert('casa de libra');
-    }
-    if(valor == 8){
-        alert('casa de escorpião');
-    }
-    if(valor == 9){
-        alert('casa de sargitário');
-    }
-    if(valor == 10){
-        alert('casa de capricornio');
-    }
-    if(valor == 11){
-        alert('casa de aquário');
-    }
-    if(valor == 12){
-        alert('casa de peixes');
-    }
-    else if(valor>12 || valor<1){
-        alert('Digite um número de 1 a 12');
-    } */
+    
+}
+
+
+buttonElement.addEventListener('click',showImgs);
+
+const ulCircles = document.querySelector(".stars");
+
+//Remove a scrollbar no inicio da animação dos círculos.
+ulCircles.addEventListener("animationstart", event => {
+    document.querySelector("body").style.overflow = "hidden";
 });
 
+for (let i = 0; i < 50; i++) {
+    const li = document.createElement('li');
 
+    //Constante para a variação dos valores.
+    const random = (min, max) => Math.random() * (max - min) + min;
+
+    const size = Math.floor(random(3, 5)); //Cria os tamanhos variados dos círculos.
+    const position = random(1, 95); //Modifica aleatoriamente as possições entre 1 e 95.
+    const delay = random(5, 0.1); //Gera um atraso para a movimentação dos círculos.
+    const duration = random(24, 12); //Define aleatoriamente o tempo de duração do efeito.
+
+    li.style.width = `${size}px`;
+    li.style.height = `${size}px`;
+    li.style.bottom = `-${size}px`; //Recebe um valor negativo para não ser gerado no campo de visão da window.
+
+    li.style.left = `${position}%`;
+
+    li.style.animationDelay = `${delay}s`;
+    li.style.animationDuration = `${duration}s`;
+    li.style.animationTimingFunction = `cubic-bezier(${Math.random()}, ${Math.random()}, ${Math.random()}, ${Math.random()})`;
+
+    ulCircles.appendChild(li); //Necessário para diferenciar cada elemento da lista (li).
+}
