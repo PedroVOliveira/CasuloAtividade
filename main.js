@@ -30,7 +30,7 @@ ulCircles.addEventListener("animationstart", event => {
     document.querySelector("body").style.overflow = "hidden";
 });
 
-for (let i = 0; i < 50; i++) {
+for (let i = 0; i < 250; i++) {
     const li = document.createElement('li');
 
     //Constante para a variação dos valores.
